@@ -1,16 +1,42 @@
-# React + Vite
+# 🎄✈️ Christmas Trip Surprise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small surprise web app created as a Christmas gift:
+a trip that is revealed step by step through destinations, photos and choices — until the final moment: “This is the one” ❤️
 
-Currently, two official plugins are available:
+Designed to be mobile‑first, simple, romantic and intentional.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 🌍 What is this app?
 
-## React Compiler
+This application delivers an interactive experience where:
+We start with a themed landing page
+Move into a short introduction
+Explore several travel destinations
+Each destination includes:
+automatic image slideshow (swipe on mobile)
+a short city description
+main tourist highlights
+The user can navigate forward and backward between destinations, choose the final destination and be redirected to a flight booking website.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+No backend involved — 100% static frontend.
 
-## Expanding the ESLint configuration
+# 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+⚛️ React
+
+⚡ Vite
+
+🧭 React Router (HashRouter) — GitHub Pages friendly
+
+🎨 Vanilla CSS
+
+🚀 GitHub Pages for hosting
+
+
+# 📱 Mobile First
+
+This app was designed primarily for mobile usage:
+vertical layouts
+swipe‑enabled slideshow
+large, accessible buttons
+fully responsive images
+Works great on desktop as well.
