@@ -1,0 +1,104 @@
+:root {
+  --bg-main: #fbf4f1;       
+  --bg-gradient: #f1e2dc;
+
+  --color-primary: #b4533c;
+  --color-secondary: #e2b6a5;
+
+  --accent-gold: #d6b25e;
+
+  --text-main: #2a1c1a;
+  --text-muted: #7a5f5b;
+}
+
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: linear-gradient(
+    180deg,
+    var(--bg-main) 0%,
+    var(--bg-gradient) 100%
+  );
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* Layout base */
+.page {
+  min-height: 100vh;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Títulos */
+h1,
+h2,
+h4 {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Texto secundário */
+.muted {
+  color: var(--text-muted);
+}
+
+/* Imagens */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
+/* Botões */
+button {
+  padding: 1rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-button {
+  background: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(180, 83, 60, 0.35);
+}
+
+.primary-button:hover {
+  transform: translateY(-1px);
+}
+
+.landing > * {
+  position: relative;
+  z-index: 1;
+}
+
+.app-background {
+  min-height: 100vh;
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.35)
+    ),
+    url("/bg-travel-christmas.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

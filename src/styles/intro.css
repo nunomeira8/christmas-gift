@@ -1,0 +1,35 @@
+.intro {
+  gap: 1.5rem;
+}
+
+.intro-content {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.intro-content h1 {
+  margin-bottom: 0.75rem;
+}
+
+.intro-content p {
+  margin-bottom: 1rem;
+}
+
+/* Imagens */
+.intro-image {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  border-radius: 22px;
+  object-fit: cover;
+}
+
+/* Pequena diferença visual entre topo e fundo */
+.intro-image.top {
+  aspect-ratio: 5 / 4;
+}
+
+.intro-image.bottom {
+  aspect-ratio: 5 / 4;
+  opacity: 0.95;
+}
