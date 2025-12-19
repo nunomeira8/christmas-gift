@@ -1,11 +1,11 @@
-🎄✈️ Christmas Trip Surprise
+# 🎄✈️ Christmas Trip Surprise
 
 A small surprise web app created as a Christmas gift:
 a trip that is revealed step by step through destinations, photos and choices — until the final moment: “This is the one” ❤️
 
 Designed to be mobile‑first, simple, romantic and intentional.
 
-🌍 What is this app?
+# 🌍 What is this app?
 
 This application delivers an interactive experience where:
 We start with a themed landing page
@@ -19,15 +19,20 @@ The user can navigate forward and backward between destinations, choose the fina
 
 No backend involved — 100% static frontend.
 
-🛠️ Tech Stack
+# 🛠️ Tech Stack
 
 ⚛️ React
+
 ⚡ Vite
+
 🧭 React Router (HashRouter) — GitHub Pages friendly
+
 🎨 Vanilla CSS
+
 🚀 GitHub Pages for hosting
 
-📱 Mobile First
+
+# 📱 Mobile First
 
 This app was designed primarily for mobile usage:
 vertical layouts
@@ -35,7 +40,3 @@ swipe‑enabled slideshow
 large, accessible buttons
 fully responsive images
 Works great on desktop as well.
-
-🌐 Deployment (GitHub Pages)
-
-This project is configured for GitHub Pages.
