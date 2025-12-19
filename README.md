@@ -15,11 +15,8 @@ Each destination includes:
 automatic image slideshow (swipe on mobile)
 a short city description
 main tourist highlights
+The user can navigate forward and backward between destinations, choose the final destination and be redirected to a flight booking website.
 
-The user can:
-
-navigate forward and backward between destinations
-choose the final destination and be redirected to a flight booking website
 No backend involved — 100% static frontend.
 
 🛠️ Tech Stack
