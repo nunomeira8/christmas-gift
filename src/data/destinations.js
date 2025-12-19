@@ -1,3 +1,16 @@
+import paris1 from "../assets/images/destinations/paris/1.jpg";
+import paris2 from "../assets/images/destinations/paris/2.jpg";
+import paris3 from "../assets/images/destinations/paris/3.jpg";
+import madrid1 from "../assets/images/destinations/madrid/1.jpg";
+import madrid2 from "../assets/images/destinations/madrid/2.jpg";
+import madrid3 from "../assets/images/destinations/madrid/3.jpg"; 
+import londres1 from "../assets/images/destinations/londres/1.jpg";
+import londres2 from "../assets/images/destinations/londres/2.jpg";
+import londres3 from "../assets/images/destinations/londres/3.jpg";
+import amsterdam1 from "../assets/images/destinations/amsterdam/1.jpg";
+import amsterdam2 from "../assets/images/destinations/amsterdam/2.jpg"; 
+import amsterdam3 from "../assets/images/destinations/amsterdam/3.jpg";
+
 export const destinations = [
   {
     id: "paris",
@@ -13,11 +26,7 @@ export const destinations = [
       "Champs-Élysées",
       "Parc des Princes"
     ],
-    images: [
-      "/assets/images/destination/paris/1.jpg",
-      "/assets/images/destination/paris/2.jpg",
-      "/assets/images/destination/paris/3.jpg",
-    ],
+    images: [paris1, paris2, paris3],
     bookingUrl: "https://www.skyscanner.pt/rotas/opo/pari/porto-para-paris.html",
   },
   {
@@ -32,11 +41,7 @@ export const destinations = [
       "Plaza Mayor",
       "Estádio Santiago Bernabéu",
     ],
-    images: [
-      "/assets/images/destination/madrid/1.jpg",
-      "/assets/images/destination/madrid/2.jpg",
-      "/assets/images/destination/madrid/3.jpg",
-    ],
+    images: [madrid1, madrid2, madrid3],
     bookingUrl: "https://www.skyscanner.pt/rotas/opo/mad/porto-para-madrid.html",
   },
   {
@@ -52,11 +57,7 @@ export const destinations = [
       "Madame Tussauds",
       "Tower Bridge",
     ],
-    images: [
-      "/assets/images/destination/londres/1.jpg",
-      "/assets/images/destination/londres/2.jpg",
-      "/assets/images/destination/londres/3.jpg",
-    ],
+    images: [londres1, londres2, londres3],
     bookingUrl: "https://www.skyscanner.pt/rotas/opo/lond/porto-para-londres.html",
   },
   {
@@ -72,11 +73,7 @@ export const destinations = [
       "Rijksmuseum",
       "Vondelpark",
     ],
-    images: [
-      "/assets/images/destination/amsterdam/1.jpg",
-      "/assets/images/destination/amsterdam/2.jpg", 
-      "/assets/images/destination/amsterdam/3.jpg",
-    ],
+    images: [amsterdam1, amsterdam2, amsterdam3],
     bookingUrl: "https://www.skyscanner.pt/rotas/opo/ams/porto-para-amesterdao.html",
   },
 ];

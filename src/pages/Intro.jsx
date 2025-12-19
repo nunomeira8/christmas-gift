@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/intro.css";
+import caminho from "../assets/images/couple/caminho.JPEG";
+import barcelona from "../assets/images/couple/barcelona.JPEG";
 
 export default function Intro() {
   const navigate = useNavigate();
@@ -7,7 +9,7 @@ export default function Intro() {
   return (
     <main className="page center intro">
       <img
-        src="/assets/images/couple/barcelona.JPEG"
+        src={barcelona}
         className="intro-image top"
       />
 
@@ -27,7 +29,7 @@ export default function Intro() {
       </div>
 
       <img
-        src="/assets/images/couple/caminho.JPEG"
+        src={caminho}
         className="intro-image bottom"
       />
     </main>

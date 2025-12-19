@@ -8,7 +8,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/christmas-gift" element={<Landing />} />
         <Route path="/intro" element={<Intro />} />
         <Route path="/destinations" element={<Destinations />} />
       </Routes>
