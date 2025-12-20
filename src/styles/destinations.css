@@ -1,13 +1,41 @@
-.destination {
-  position: relative;
-  padding-bottom: 5rem;
+/* --- CONTAINER --- */
+
+.destinations-carousel {
+  padding: 0;
 }
+
+/* --- CAROUSEL --- */
+
+.carousel {
+  display: flex;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+/* --- CARD --- */
+
+.destination-card {
+  flex: 0 0 100%;
+  max-width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* Conteúdo interno com padding */
+.destination-inner {
+  width: 100%;
+  max-width: 520px;
+  padding: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- SLIDESHOW --- */
 
 .slideshow {
   width: 100%;
-  max-width: 480px;
-  margin: 0 auto;
-
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 20px;
@@ -18,9 +46,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  display: block;
 }
+
+/* --- TEXTO --- */
 
 .destination-content {
   margin-top: 1.5rem;
@@ -36,35 +64,7 @@
   color: black;
 }
 
-.highlights li {
-  margin-bottom: 0.25rem;
-}
-
-/* Botão próximo fixo */
-.next-button {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  padding: 1rem 1.25rem;
-  border-radius: 999px;
-  background: var(--color-primary);
-  color: white;
-  border: none;
-  font-weight: 600;
-}
-
-.choose-button {
-  display: inline-block;
-  margin: 1.5rem auto 0;
-  padding: 0.6rem 1.1rem;
-  background: var(--color-primary);
-  color: white;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-align: center;
-  text-decoration: none;
-}
+/* --- BOTÕES --- */
 
 .choose-wrapper {
   display: flex;
@@ -72,16 +72,43 @@
   margin-top: 1.5rem;
 }
 
-.nav-buttons {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 1.5rem;
+.choose-button {
+  padding: 0.6rem 1.1rem;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-.nav-buttons .spacer {
-  width: 1px;
+/* --- CARD FINAL --- */
+
+.end-card {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+/* --- PROGRESS DOTS --- */
+
+.progress-dots {
+  position: fixed;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.dot.active {
+  background: var(--color-primary);
 }
