@@ -15,14 +15,14 @@ function shuffleArray(array) {
 export default function Destinations() {
   const navigate = useNavigate();
 
-  const [orderedDestinations] = useState(() =>
-    shuffleArray(destinations)
-  );
+  const [orderedDestinations] = useState(() => shuffleArray(destinations));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [startX, setStartX] = useState(null);
 
   const carouselRef = useRef(null);
   const cardRef = useRef(null);
+
+  const [showHint, setShowHint] = useState(true);
 
   // Garante posição inicial correta
   useEffect(() => {
@@ -32,8 +32,13 @@ export default function Destinations() {
   }, []);
 
   const scrollToIndex = (index) => {
-    const maxIndex = orderedDestinations.length; // inclui o card final
+    const maxIndex = orderedDestinations.length;
     const clamped = Math.max(0, Math.min(index, maxIndex));
+
+    // 🔥 remove o hint no primeiro movimento
+    if (showHint && clamped !== 0) {
+      setShowHint(false);
+    }
 
     setCurrentIndex(clamped);
 
@@ -69,6 +74,11 @@ export default function Destinations() {
 
   return (
     <main className="page destinations-carousel">
+      {showHint && currentIndex === 0 && (
+        <div className="gesture-hint">
+          <span>Desliza para explorar ✨</span>
+        </div>
+      )}
       <div
         ref={carouselRef}
         className="carousel"
@@ -87,14 +97,10 @@ export default function Destinations() {
               <div className="destination-content">
                 <h1>
                   {destination.city}
-                  <span className="muted">
-                    , {destination.country}
-                  </span>
+                  <span className="muted">, {destination.country}</span>
                 </h1>
 
-                <p className="black-text">
-                  {destination.description}
-                </p>
+                <p className="black-text">{destination.description}</p>
 
                 <ul className="highlights black-text">
                   {destination.highlights.map((item) => (
@@ -146,9 +152,7 @@ function Slideshow({ images }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImage(
-        (prev) => (prev + 1) % images.length
-      );
+      setCurrentImage((prev) => (prev + 1) % images.length);
     }, 2000);
 
     return () => clearInterval(interval);
@@ -165,10 +169,7 @@ function ProgressDots({ total, current }) {
   return (
     <div className="progress-dots">
       {Array.from({ length: total }).map((_, i) => (
-        <span
-          key={i}
-          className={`dot ${i === current ? "active" : ""}`}
-        />
+        <span key={i} className={`dot ${i === current ? "active" : ""}`} />
       ))}
     </div>
   );

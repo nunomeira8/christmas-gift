@@ -32,7 +32,7 @@ export const destinations = [
     city: "Paris",
     country: "França",
     description:
-      "A cidade do amor. Romântica e elegante, conhecida pela sua arte, arquitetura icónica e ambiente boémio. On va à Paris ?",
+      "A cidade do amor. Romântica e elegante, conhecida pela sua arte e arquitetura icónica. On va à Paris?",
     highlights: [
       "Torre Eiffel",
       "Museu do Louvre",
@@ -96,7 +96,7 @@ export const destinations = [
     city: "Bruxelas",
     country: "Bélgica",
     description:
-      "Bruxelas é a capital da Bélgica e da União Europeia, conhecida pela sua arquitetura impressionante, cultura vibrante e deliciosa gastronomia. On va à Bruxelles ?",
+      "Bruxelas é a capital da Bélgica e da União Europeia, conhecida pela sua arquitetura impressionante, cultura vibrante e deliciosa gastronomia. On va à Bruxelles?",
     highlights: [
       "Grand Place",
       "Atomium",
