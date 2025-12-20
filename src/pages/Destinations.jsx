@@ -1,13 +1,24 @@
 import { useEffect, useState } from "react";
 import { destinations } from "../data/destinations";
 import "../styles/destinations.css";
+import { useNavigate } from "react-router-dom";
+
+function shuffleArray(array) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
 
 export default function Destinations() {
   const [currentDestination, setCurrentDestination] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
 
-  const destination = destinations[currentDestination];
+  const [randomizedDestinations] = useState(() => shuffleArray(destinations));
 
+  const destination = randomizedDestinations[currentDestination];
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % destination.images.length);
@@ -17,7 +28,7 @@ export default function Destinations() {
   }, [destination]);
 
   const goNext = () => {
-    if (currentDestination < destinations.length - 1) {
+    if (currentDestination < randomizedDestinations.length - 1) {
       setCurrentDestination((prev) => prev + 1);
       setCurrentImage(0); // reset aqui
     }
@@ -29,6 +40,8 @@ export default function Destinations() {
       setCurrentImage(0); // reset aqui
     }
   };
+
+  const navigate = useNavigate();
 
   return (
     <main className="page destination">
@@ -88,9 +101,16 @@ export default function Destinations() {
           <div className="spacer" />
         )}
 
-        {currentDestination < destinations.length - 1 && (
+        {currentDestination < randomizedDestinations.length - 1 ? (
           <button className="secondary-button" onClick={goNext}>
             Próximo →
+          </button>
+        ) : (
+          <button
+            className="secondary-button"
+            onClick={() => navigate("/intro")}
+          >
+            Voltar ao início ↺
           </button>
         )}
       </div>

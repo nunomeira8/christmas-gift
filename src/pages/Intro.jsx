@@ -14,17 +14,17 @@ export default function Intro() {
       />
 
       <div className="intro-content">
-        <h1>Temos uma viagem para descobrir ✈️</h1>
+        <h1>Temos uma nova aventura pela frente ✈️</h1>
 
         <p className="muted">
-          Vamos explorar algumas possibilidades juntos.
+          Para onde vamos?
         </p>
 
         <button
           className="primary-button"
           onClick={() => navigate("/destinations")}
         >
-          Começar a explorar 🌍
+          Vamos escolher! 🌍
         </button>
       </div>
 
