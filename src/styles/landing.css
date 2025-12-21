@@ -1,0 +1,144 @@
+/* LANDING BASE */
+.landing {
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    180deg,
+    #7a1f1f 0%,
+    #4b0f0f 100%
+  );
+}
+
+/* ---------------- NEVE VISÍVEL ---------------- */
+
+.snow-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  background-image:
+    radial-gradient(circle, rgba(220,240,255,0.9) 2px, transparent 3px),
+    radial-gradient(circle, rgba(220,240,255,0.7) 1.5px, transparent 3px),
+    radial-gradient(circle, rgba(220,240,255,0.6) 1px, transparent 3px);
+
+  background-size:
+    140px 140px,
+    200px 200px,
+    260px 260px;
+
+  animation: snow-fall 18s linear infinite;
+}
+
+/* animação da neve */
+@keyframes snow-fall {
+  from {
+    background-position:
+      0 -20vh,
+      0 -40vh,
+      0 -60vh;
+  }
+  to {
+    background-position:
+      0 120vh,
+      0 160vh,
+      0 200vh;
+  }
+}
+
+/* ---------------- CARD ---------------- */
+
+.landing-card {
+  position: relative;
+  z-index: 2;
+
+  background: #fffaf7;
+  padding: 3rem 2.5rem;
+  border-radius: 28px;
+
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+
+  border: 1px solid rgba(214, 178, 94, 0.5);
+
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+
+  animation: fadeUp 0.8s ease both;
+}
+
+/* emoji */
+.landing .emoji {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  animation: sparkle 1s ease-in-out infinite;
+}
+
+/* título */
+.landing h1 {
+  margin-bottom: 2rem;
+  color: #2a1c1a;
+}
+
+/* botão */
+.landing .primary-button {
+  background: linear-gradient(
+    180deg,
+    #b4533c,
+    #8f3a28
+  );
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------------- ANIMAÇÕES ---------------- */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.landing .emoji {
+  animation-delay: 0.6s;
+}
+
+.landing-card {
+  animation:
+    fadeUp 0.9s ease both,
+    breathe 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+.landing .muted {
+  opacity: 0.8;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}

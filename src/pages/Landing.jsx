@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { preloadImages } from "../utils/preloadImages";
 
+import "../styles/landing.css";
+
 // intro
 import barcelona from "../assets/images/couple/barcelona.webp";
 import caminho from "../assets/images/couple/caminho.webp";
@@ -24,21 +26,27 @@ export default function Landing() {
 
   return (
     <main className="page center landing">
-      <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>🎄</div>
+      {/* camada de neve */}
+      <div className="snow-layer" />
 
-      {!isReady ? (
-        <p className="muted">A preparar algo especial para ti…</p>
-      ) : (
-        <>
-          <h1 style={{ marginBottom: "2rem" }}>
-            Tenho algo para desembrulhares
-          </h1>
+      <div className="landing-card">
+        <div className="emoji">🎁</div>
 
-          <button className="primary-button" onClick={() => navigate("/intro")}>
-            Descobre a tua prenda ✨
-          </button>
-        </>
-      )}
+        {!isReady ? (
+          <p className="muted">A preparar algo especial para ti…</p>
+        ) : (
+          <>
+            <h1>Tenho algo para desembrulhares</h1>
+
+            <button
+              className="primary-button"
+              onClick={() => navigate("/intro")}
+            >
+              Descobre a tua prenda ✨
+            </button>
+          </>
+        )}
+      </div>
     </main>
   );
 }
