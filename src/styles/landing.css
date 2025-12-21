@@ -1,0 +1,97 @@
+/* LANDING – espírito natalício */
+
+.landing {
+  position: relative;
+  overflow: hidden;
+}
+
+/* brilho suave no fundo */
+.christmas-glow {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at top,
+      rgba(214, 178, 94, 0.25),
+      transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* cartão central */
+.landing-card {
+  position: relative;
+  z-index: 1;
+
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  padding: 3rem 2.5rem;
+  border-radius: 28px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+
+  animation: fadeUp 0.8s ease both;
+}
+
+/* emoji */
+.landing .emoji {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  animation: sparkle 2.5s ease-in-out infinite;
+}
+
+/* título */
+.landing h1 {
+  margin-bottom: 2rem;
+}
+
+/* botão com feeling “presente” */
+.landing .primary-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.landing .primary-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.5),
+    transparent 70%
+  );
+  transform: translateX(-100%);
+}
+
+.landing .primary-button:hover::after {
+  transform: translateX(100%);
+  transition: transform 0.8s ease;
+}
+
+/* animações */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
