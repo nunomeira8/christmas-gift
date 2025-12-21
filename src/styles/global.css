@@ -1,107 +1,154 @@
+/* =========================
+   VARIABLES
+========================= */
 :root {
   --bg-main: #fbf4f1;
   --bg-gradient: #f1e2dc;
 
   --color-primary: #b4533c;
   --color-secondary: #e2b6a5;
-
   --accent-gold: #d6b25e;
 
   --text-main: #2a1c1a;
   --text-muted: #7a5f5b;
 }
 
-
-/* Reset */
+/* =========================
+   RESET BASE
+========================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html,
-body {
+/* =========================
+   HTML / BODY
+   (Safari-safe)
+========================= */
+html {
   height: 100%;
-  overflow: hidden;
-  background: linear-gradient(180deg,
-      var(--bg-main) 0%,
-      var(--bg-gradient) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--bg-main) 0%,
+    var(--bg-gradient) 100%
+  );
 }
 
 body {
+  min-height: 100%;
+  background: inherit;
+
   font-family: "Inter", system-ui, sans-serif;
   color: var(--text-main);
   line-height: 1.6;
+
+  /* 🔥 essencial para Safari mobile */
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+
+  /* evita scroll elástico mostrar branco */
+  overflow: hidden;
 }
 
-/* Layout base */
+/* =========================
+   ROOT
+========================= */
+#root {
+  min-height: 100vh;
+  min-height: 100svh; /* viewport real em mobile */
+  background: inherit;
+}
+
+/* =========================
+   PAGE LAYOUT
+========================= */
 .page {
   min-height: 100vh;
   min-height: 100svh;
+
   padding: 1.5rem;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #ffffff;
+
+  background: inherit;
 }
 
+/* =========================
+   ALIGNMENT
+========================= */
 .center {
   text-align: center;
 }
 
-/* Títulos */
+/* =========================
+   TYPOGRAPHY
+========================= */
 h1,
 h2,
+h3,
 h4 {
   font-family: "Playfair Display", serif;
   font-weight: 600;
   color: var(--text-main);
 }
 
-/* Texto secundário */
 .muted {
   color: var(--text-muted);
 }
 
-/* Imagens */
+/* =========================
+   IMAGES
+========================= */
 img {
   max-width: 100%;
-  height: auto;
+  display: block;
   border-radius: 18px;
 }
 
-/* Botões */
+/* =========================
+   BUTTONS
+========================= */
 button {
-  padding: 1rem 1.5rem;
-  border-radius: 999px;
   border: none;
-  font-size: 1rem;
-  font-weight: 600;
   cursor: pointer;
+  font-family: inherit;
 }
 
 .primary-button {
+  padding: 1rem 1.5rem;
+  border-radius: 999px;
+
   background: var(--color-primary);
-  color: #ffffff;
+  color: #fff;
+
+  font-size: 1rem;
+  font-weight: 600;
+
   box-shadow: 0 8px 24px rgba(180, 83, 60, 0.35);
 }
 
-.primary-button:hover {
-  transform: translateY(-1px);
+.primary-button:active {
+  transform: scale(0.98);
 }
 
-.landing>* {
-  position: relative;
-  z-index: 1;
+.secondary-button {
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+
+  font-weight: 600;
 }
 
-.app-background {
-  min-height: 100vh;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.35),
-      rgba(0, 0, 0, 0.35)),
-    url("/bg-travel-christmas.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/* =========================
+   LINKS
+========================= */
+a {
+  color: inherit;
+  text-decoration: none;
 }
