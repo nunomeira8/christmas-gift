@@ -29,7 +29,7 @@ export default function Landing() {
       <div className="christmas-glow" />
 
       <div className="landing-card">
-        <div className="emoji">🎄</div>
+        <div className="emoji">🎁</div>
 
         {!isReady ? (
           <p className="muted">A preparar algo especial para ti…</p>

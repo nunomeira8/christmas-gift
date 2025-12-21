@@ -1,19 +1,25 @@
-/* LANDING – espírito natalício */
+/* LANDING – cartão presente */
 
 .landing {
   position: relative;
-  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    #7a1f1f 0%,
+    #4b0f0f 100%
+  );
 }
 
-/* brilho suave no fundo */
-.christmas-glow {
+/* brilho suave por trás do card */
+.landing::before {
+  content: "";
   position: absolute;
-  inset: -20%;
+  inset: 0;
   background:
-    radial-gradient(circle at top,
-      rgba(214, 178, 94, 0.25),
-      transparent 60%);
-  z-index: 0;
+    radial-gradient(
+      circle at top,
+      rgba(214, 178, 94, 0.35),
+      transparent 60%
+    );
   pointer-events: none;
 }
 
@@ -22,64 +28,50 @@
   position: relative;
   z-index: 1;
 
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
+  background: #fffaf7;
   padding: 3rem 2.5rem;
   border-radius: 28px;
+
+  border: 1px solid rgba(214, 178, 94, 0.6);
+
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.08),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    0 30px 60px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
 
   max-width: 420px;
   width: 100%;
   text-align: center;
 
-  animation: fadeUp 0.8s ease both;
+  animation: fadeUp 0.9s ease both;
 }
 
 /* emoji */
 .landing .emoji {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   margin-bottom: 1rem;
-  animation: sparkle 2.5s ease-in-out infinite;
 }
 
 /* título */
 .landing h1 {
   margin-bottom: 2rem;
+  color: #2a1c1a;
 }
 
-/* botão com feeling “presente” */
+/* botão */
 .landing .primary-button {
-  position: relative;
-  overflow: hidden;
-}
-
-.landing .primary-button::after {
-  content: "";
-  position: absolute;
-  inset: 0;
   background: linear-gradient(
-    120deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.5),
-    transparent 70%
+    180deg,
+    #b4533c,
+    #8f3a28
   );
-  transform: translateX(-100%);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
-.landing .primary-button:hover::after {
-  transform: translateX(100%);
-  transition: transform 0.8s ease;
-}
-
-/* animações */
+/* animação */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -87,11 +79,20 @@
   }
 }
 
+.landing .emoji {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  animation: sparkle 1.2s ease-in-out infinite;
+}
+
 @keyframes sparkle {
-  0%, 100% {
-    transform: scale(1);
+  0% {
+    transform: scale(1) rotate(0deg);
   }
   50% {
-    transform: scale(1.08);
+    transform: scale(1.15) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
   }
 }
