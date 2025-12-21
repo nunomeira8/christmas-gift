@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { destinations } from "../data/destinations";
 import "../styles/destinations.css";
 import { useNavigate } from "react-router-dom";
+import Slideshow from "../components/Slideshow.jsx";
+import ProgressDots from "../components/ProgressDots.jsx";
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -142,35 +144,5 @@ export default function Destinations() {
         current={currentIndex}
       />
     </main>
-  );
-}
-
-/* ---------- COMPONENTES ---------- */
-
-function Slideshow({ images }) {
-  const [currentImage, setCurrentImage] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [images]);
-
-  return (
-    <div className="slideshow">
-      <img src={images[currentImage]} alt="" />
-    </div>
-  );
-}
-
-function ProgressDots({ total, current }) {
-  return (
-    <div className="progress-dots">
-      {Array.from({ length: total }).map((_, i) => (
-        <span key={i} className={`dot ${i === current ? "active" : ""}`} />
-      ))}
-    </div>
   );
 }
