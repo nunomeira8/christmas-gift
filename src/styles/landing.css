@@ -117,3 +117,28 @@
     transform: scale(1);
   }
 }
+
+.landing .emoji {
+  animation-delay: 0.6s;
+}
+
+.landing-card {
+  animation:
+    fadeUp 0.9s ease both,
+    breathe 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+.landing .muted {
+  opacity: 0.8;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
