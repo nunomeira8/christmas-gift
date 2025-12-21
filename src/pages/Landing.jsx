@@ -26,7 +26,8 @@ export default function Landing() {
 
   return (
     <main className="page center landing">
-      <div className="christmas-glow" />
+      {/* camada de neve */}
+      <div className="snow-layer" />
 
       <div className="landing-card">
         <div className="emoji">🎁</div>
