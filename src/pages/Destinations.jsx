@@ -14,6 +14,15 @@ function shuffleArray(array) {
   return shuffled;
 }
 
+function preloadImages(destinations) {
+  destinations.forEach((destination) => {
+    destination.images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  });
+}
+
 export default function Destinations() {
   const navigate = useNavigate();
 
@@ -25,6 +34,11 @@ export default function Destinations() {
   const cardRef = useRef(null);
 
   const [showHint, setShowHint] = useState(true);
+
+  // Preload imagens
+  useEffect(() => {
+    preloadImages(orderedDestinations);
+  }, [orderedDestinations]);
 
   // Garante posição inicial correta
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useEffect } from "react-router-dom";
 import "../styles/intro.css";
 import caminho from "../assets/images/couple/caminho.JPEG";
 import barcelona from "../assets/images/couple/barcelona.JPEG";
@@ -6,19 +6,21 @@ import barcelona from "../assets/images/couple/barcelona.JPEG";
 export default function Intro() {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    [barcelona, caminho].forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   return (
     <main className="page center intro">
-      <img
-        src={barcelona}
-        className="intro-image top"
-      />
+      <img src={barcelona} className="intro-image top" />
 
       <div className="intro-content">
         <h1>Temos uma nova aventura pela frente ✈️</h1>
 
-        <p className="muted">
-          Para onde vamos?
-        </p>
+        <p className="muted">Para onde vamos?</p>
 
         <button
           className="primary-button"
@@ -28,10 +30,7 @@ export default function Intro() {
         </button>
       </div>
 
-      <img
-        src={caminho}
-        className="intro-image bottom"
-      />
+      <img src={caminho} className="intro-image bottom" />
     </main>
   );
 }
