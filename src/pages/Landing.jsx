@@ -24,7 +24,7 @@ export default function Landing() {
 
   return (
     <main className="page center landing">
-      <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>🎄🎄</div>
+      <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>🎄</div>
 
       {!isReady ? (
         <p className="muted">A preparar algo especial para ti…</p>

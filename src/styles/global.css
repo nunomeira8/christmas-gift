@@ -11,57 +11,49 @@
   --text-muted: #7a5f5b;
 }
 
-/* ================= RESET ================= */
-
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ================= HTML / BODY ================= */
-
+/* 🔒 HTML & BODY FIXOS AO VIEWPORT (Safari iOS) */
 html,
 body {
   width: 100%;
   height: 100%;
-}
-
-/* ⚠️ body NÃO tem background */
-body {
-  font-family: "Inter", system-ui, sans-serif;
-  color: var(--text-main);
-  line-height: 1.6;
-
-  /* evita scroll bounce vertical branco */
-  overscroll-behavior-y: none;
-}
-
-/* ================= ROOT BACKGROUND FIX ================= */
-
-/*
-  Este é o ponto-chave:
-  O fundo passa para o #root, que é FIXO e cobre tudo,
-  incluindo notch e home-bar.
-*/
-
-#root {
-  min-height: 100vh;
-  min-height: 100svh;
+  overflow-x: hidden;
 
   background: linear-gradient(
     180deg,
     var(--bg-main) 0%,
     var(--bg-gradient) 100%
   );
+}
 
-  /* Safe areas iOS */
+/* IMPORTANTE: scroll vertical só no body */
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text-main);
+  line-height: 1.6;
+
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  /* safe-area */
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* ================= BASE PAGE ================= */
+/* ROOT ocupa sempre o ecrã real */
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
+/* BASE PAGE */
 .page {
   min-height: 100vh;
   min-height: 100svh;
@@ -73,15 +65,13 @@ body {
   justify-content: center;
 }
 
-/* ================= HELPERS ================= */
-
+/* CENTER HELPER */
 .center {
-  text-align: center;
   align-items: center;
+  text-align: center;
 }
 
-/* ================= TEXT ================= */
-
+/* TEXT */
 h1,
 h2,
 h4 {
@@ -94,16 +84,14 @@ h4 {
   color: var(--text-muted);
 }
 
-/* ================= IMAGES ================= */
-
+/* IMAGES */
 img {
   max-width: 100%;
   height: auto;
   border-radius: 18px;
 }
 
-/* ================= BUTTONS ================= */
-
+/* BUTTONS */
 button {
   padding: 1rem 1.5rem;
   border-radius: 999px;
@@ -115,6 +103,6 @@ button {
 
 .primary-button {
   background: var(--color-primary);
-  color: #ffffff;
+  color: #fff;
   box-shadow: 0 8px 24px rgba(180, 83, 60, 0.35);
 }
