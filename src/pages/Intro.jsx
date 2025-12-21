@@ -1,4 +1,5 @@
-import { useNavigate, useEffect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import "../styles/intro.css";
 import caminho from "../assets/images/couple/caminho.JPEG";
 import barcelona from "../assets/images/couple/barcelona.JPEG";
