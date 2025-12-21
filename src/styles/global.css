@@ -110,3 +110,45 @@ body {
   min-height: 100svh;
   background: inherit;
 }
+
+/* --- Safari iOS safe-area fix --- */
+
+html {
+  background: linear-gradient(
+    180deg,
+    var(--bg-main) 0%,
+    var(--bg-gradient) 100%
+  );
+}
+
+body {
+  background: inherit;
+}
+
+/* pinta explicitamente as safe-areas */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    180deg,
+    var(--bg-main) 0%,
+    var(--bg-gradient) 100%
+  );
+  z-index: -1;
+}
+
+/* notch (top) */
+body::before {
+  top: 0;
+  height: env(safe-area-inset-top);
+}
+
+/* home bar (bottom) */
+body::after {
+  bottom: 0;
+  height: env(safe-area-inset-bottom);
+}
+
