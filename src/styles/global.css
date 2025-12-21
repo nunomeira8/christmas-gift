@@ -1,33 +1,35 @@
-/* =========================
+/* ===============================
    VARIABLES
-========================= */
+================================ */
 :root {
   --bg-main: #fbf4f1;
   --bg-gradient: #f1e2dc;
 
   --color-primary: #b4533c;
   --color-secondary: #e2b6a5;
+
   --accent-gold: #d6b25e;
 
   --text-main: #2a1c1a;
   --text-muted: #7a5f5b;
 }
 
-/* =========================
-   RESET BASE
-========================= */
+/* ===============================
+   RESET
+================================ */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* =========================
-   HTML / BODY
-   (Safari-safe)
-========================= */
-html {
-  height: 100%;
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  overscroll-behavior: none;
+
+  /* FUNDAMENTAL PARA SAFARI */
   background: linear-gradient(
     180deg,
     var(--bg-main) 0%,
@@ -35,57 +37,37 @@ html {
   );
 }
 
+/* REMOVE FLEX DO BODY (isto é CRÍTICO) */
 body {
-  min-height: 100%;
-  background: inherit;
-
   font-family: "Inter", system-ui, sans-serif;
   color: var(--text-main);
   line-height: 1.6;
-
-  /* 🔥 essencial para Safari mobile */
-  overscroll-behavior: none;
-  -webkit-overflow-scrolling: touch;
-
-  /* evita scroll elástico mostrar branco */
   overflow: hidden;
 }
 
-/* =========================
-   ROOT
-========================= */
+/* ROOT TEM DE OCUPAR TUDO */
 #root {
   min-height: 100vh;
-  min-height: 100svh; /* viewport real em mobile */
+  min-height: 100svh;
   background: inherit;
 }
 
-/* =========================
-   PAGE LAYOUT
-========================= */
+/* ===============================
+   PAGE BASE
+================================ */
 .page {
   min-height: 100vh;
   min-height: 100svh;
 
-  padding: 1.5rem;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
-  background: inherit;
+  padding: 1.5rem;
 }
 
-/* =========================
-   ALIGNMENT
-========================= */
-.center {
-  text-align: center;
-}
-
-/* =========================
+/* ===============================
    TYPOGRAPHY
-========================= */
+================================ */
 h1,
 h2,
 h3,
@@ -99,18 +81,22 @@ h4 {
   color: var(--text-muted);
 }
 
-/* =========================
+.black-text {
+  color: var(--text-main);
+}
+
+/* ===============================
    IMAGES
-========================= */
+================================ */
 img {
   max-width: 100%;
   display: block;
   border-radius: 18px;
 }
 
-/* =========================
+/* ===============================
    BUTTONS
-========================= */
+================================ */
 button {
   border: none;
   cursor: pointer;
@@ -120,35 +106,27 @@ button {
 .primary-button {
   padding: 1rem 1.5rem;
   border-radius: 999px;
-
   background: var(--color-primary);
-  color: #fff;
-
-  font-size: 1rem;
+  color: white;
   font-weight: 600;
-
   box-shadow: 0 8px 24px rgba(180, 83, 60, 0.35);
-}
-
-.primary-button:active {
-  transform: scale(0.98);
 }
 
 .secondary-button {
   padding: 0.8rem 1.4rem;
   border-radius: 999px;
-
-  background: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
-
+  background: var(--color-secondary);
+  color: var(--text-main);
   font-weight: 600;
 }
 
-/* =========================
-   LINKS
-========================= */
-a {
-  color: inherit;
-  text-decoration: none;
+/* ===============================
+   SAFARI FIXES
+================================ */
+
+/* Impede “pull to reveal white” */
+body,
+#root {
+  overscroll-behavior-y: none;
+  touch-action: pan-x pan-y;
 }
