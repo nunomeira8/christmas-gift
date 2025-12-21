@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import "../styles/intro.css";
-import caminho from "../assets/images/couple/caminho.JPEG";
-import barcelona from "../assets/images/couple/barcelona.JPEG";
+import caminho from "../assets/images/couple/caminho.webp";
+import barcelona from "../assets/images/couple/barcelona.webp";
 
 export default function Intro() {
   const navigate = useNavigate();
