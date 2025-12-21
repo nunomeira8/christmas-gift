@@ -1,5 +1,5 @@
 :root {
-  --bg-main: #fbf4f1;       
+  --bg-main: #fbf4f1;
   --bg-gradient: #f1e2dc;
 
   --color-primary: #b4533c;
@@ -11,40 +11,56 @@
   --text-muted: #7a5f5b;
 }
 
-
-/* Reset */
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html,
 body {
-  font-family: "Inter", system-ui, sans-serif;
+  width: 100%;
+  min-height: 100%;
   background: linear-gradient(
     180deg,
     var(--bg-main) 0%,
     var(--bg-gradient) 100%
   );
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
   color: var(--text-main);
   line-height: 1.6;
 }
 
-/* Layout base */
+/* ROOT ocupa sempre o ecrã */
+#root {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* BASE PAGE */
 .page {
   min-height: 100vh;
+  min-height: 100svh;
   padding: 1.5rem;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #ffffff;
 }
 
+/* CENTER HELPER */
 .center {
   text-align: center;
+  align-items: center;
 }
 
-/* Títulos */
+/* TEXT */
 h1,
 h2,
 h4 {
@@ -53,19 +69,18 @@ h4 {
   color: var(--text-main);
 }
 
-/* Texto secundário */
 .muted {
   color: var(--text-muted);
 }
 
-/* Imagens */
+/* IMAGES */
 img {
   max-width: 100%;
   height: auto;
   border-radius: 18px;
 }
 
-/* Botões */
+/* BUTTONS */
 button {
   padding: 1rem 1.5rem;
   border-radius: 999px;
@@ -77,28 +92,21 @@ button {
 
 .primary-button {
   background: var(--color-primary);
-  color: #ffffff;
+  color: #fff;
   box-shadow: 0 8px 24px rgba(180, 83, 60, 0.35);
 }
 
-.primary-button:hover {
-  transform: translateY(-1px);
+html {
+  background: linear-gradient(
+    180deg,
+    var(--bg-main) 0%,
+    var(--bg-gradient) 100%
+  );
 }
 
-.landing > * {
-  position: relative;
-  z-index: 1;
-}
-
-.app-background {
+/* Safari iOS fix */
+body {
   min-height: 100vh;
-  background-image:
-    linear-gradient(
-      rgba(0,0,0,0.35),
-      rgba(0,0,0,0.35)
-    ),
-    url("/bg-travel-christmas.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  min-height: 100svh;
+  background: inherit;
 }
