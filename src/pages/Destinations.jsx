@@ -6,13 +6,17 @@ import ProgressDots from "../components/ProgressDots.jsx";
 
 /* ---------- HELPERS ---------- */
 
-function shuffleArray(array) {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
+function shuffleWithParisFirst(destinations) {
+  const paris = destinations.find(d => d.city === "Paris");
+  const rest = destinations.filter(d => d.city !== "Paris");
+
+  // baralhar o resto
+  for (let i = rest.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    [rest[i], rest[j]] = [rest[j], rest[i]];
   }
-  return shuffled;
+
+  return paris ? [paris, ...rest] : rest;
 }
 
 function preloadImages(destinations) {
@@ -27,7 +31,7 @@ function preloadImages(destinations) {
 /* ---------- COMPONENT ---------- */
 
 export default function Destinations() {
-  const [orderedDestinations] = useState(() => shuffleArray(destinations));
+  const [orderedDestinations] = useState(() => shuffleWithParisFirst(destinations));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showLimitMessage, setShowLimitMessage] = useState(false);
   const [startX, setStartX] = useState(null);
