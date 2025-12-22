@@ -9,7 +9,6 @@
 .carousel {
   display: flex;
   overflow-x: hidden;
-  height: 94vh;
   touch-action: pan-x;
 }
 
