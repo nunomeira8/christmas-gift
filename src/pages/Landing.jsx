@@ -11,6 +11,7 @@ import caminho from "../assets/images/couple/caminho.webp";
 export default function Landing() {
   const navigate = useNavigate();
   const [isReady, setIsReady] = useState(false);
+  const [isOpening, setIsOpening] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,26 +25,34 @@ export default function Landing() {
     preloadImages([barcelona, caminho]);
   }, []);
 
+  const handleOpen = () => {
+    if (isOpening) return;
+
+    setIsOpening(true);
+
+    // tempo tem de bater com a animação CSS
+    setTimeout(() => {
+      navigate("/intro");
+    }, 900);
+  };
+
   return (
     <main className="page center landing">
-      {/* camada de neve */}
       <div className="snow-layer" />
 
       <div className="landing-card">
-        <div className="emoji">🎁</div>
-
         {!isReady ? (
-          <p className="muted">A preparar algo especial para ti…</p>
+          <p className="muted">A preparar algo especial...</p>
         ) : (
           <>
-            <h1>Tenho algo para desembrulhares</h1>
+            <h1>Chegou o momento!</h1>
 
-            <button
-              className="primary-button"
-              onClick={() => navigate("/intro")}
+            <div
+              className={`emoji ${isOpening ? "explode" : ""}`}
+              onClick={handleOpen}
             >
-              Descobre a tua prenda ✨
-            </button>
+              🎁
+            </div>
           </>
         )}
       </div>

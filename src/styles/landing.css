@@ -142,3 +142,46 @@
   0%, 100% { opacity: 0.6; }
   50% { opacity: 1; }
 }
+
+/* emoji base */
+.landing .emoji {
+  font-size: 2.6rem;
+  cursor: pointer;
+  user-select: none;
+
+  animation: sparkle 1s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+
+/* hover dá mais vontade de clicar */
+.landing .emoji:hover {
+  transform: scale(1.15);
+}
+
+/* ---------------- CLIQUE / EXPLOSÃO ---------------- */
+
+.landing .emoji.explode {
+  animation: explode 0.9s ease forwards;
+}
+
+/* explode animation */
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  40% {
+    transform: scale(1.8) rotate(-8deg);
+  }
+
+  70% {
+    transform: scale(2.6) rotate(8deg);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}

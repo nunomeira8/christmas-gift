@@ -9,11 +9,18 @@ export default function Slideshow({ images }) {
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [images]);
+  }, [images.length]);
 
   return (
     <div className="slideshow">
-      <img src={images[currentImage]} alt="" />
+      {images.map((src, index) => (
+        <img
+          key={src}
+          src={src}
+          alt=""
+          className={index === currentImage ? "active" : ""}
+        />
+      ))}
     </div>
   );
 }
