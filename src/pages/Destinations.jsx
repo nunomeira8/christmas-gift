@@ -3,12 +3,45 @@ import { destinations } from "../data/destinations";
 import "../styles/destinations.css";
 import Slideshow from "../components/Slideshow.jsx";
 import ProgressDots from "../components/ProgressDots.jsx";
+import paris from "../assets/images/couple/ending/paris.png";
+import madrid from "../assets/images/couple/ending/madrid.png";
+import rome from "../assets/images/couple/ending/rome.png";
+import london from "../assets/images/couple/ending/london.png";
+import vienna from "../assets/images/couple/ending/vienna.png";
+import amsterdam from "../assets/images/couple/ending/amsterdam.png";
+import brussels from "../assets/images/couple/ending/brussels.png";
+import prague from "../assets/images/couple/ending/prague.png";
+import milano from "../assets/images/couple/ending/milano.png";
+
+const endingImages = {
+  paris: paris,
+  madrid: madrid,
+  roma: rome,
+  london: london,
+  vienna: vienna,
+  amsterdam: amsterdam,
+  bruxelas: brussels,
+  milano: milano,
+  praga: prague,
+};
+
+const countryFlags = {
+  paris: "🇫🇷",
+  madrid: "🇪🇸",
+  roma: "🇮🇹",
+  london: "🇬🇧",
+  vienna: "🇦🇹",
+  amsterdam: "🇳🇱",
+  bruxelas: "🇧🇪",
+  praga: "🇨🇿",
+  milano: "🇮🇹",
+};
 
 /* ---------- HELPERS ---------- */
 
 function shuffleWithParisFirst(destinations) {
-  const paris = destinations.find(d => d.city === "Paris");
-  const rest = destinations.filter(d => d.city !== "Paris");
+  const paris = destinations.find((d) => d.city === "Paris");
+  const rest = destinations.filter((d) => d.city !== "Paris");
 
   // baralhar o resto
   for (let i = rest.length - 1; i > 0; i--) {
@@ -31,7 +64,9 @@ function preloadImages(destinations) {
 /* ---------- COMPONENT ---------- */
 
 export default function Destinations() {
-  const [orderedDestinations] = useState(() => shuffleWithParisFirst(destinations));
+  const [orderedDestinations] = useState(() =>
+    shuffleWithParisFirst(destinations)
+  );
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showLimitMessage, setShowLimitMessage] = useState(false);
   const [startX, setStartX] = useState(null);
@@ -127,6 +162,18 @@ export default function Destinations() {
 
   const isSelected = (id) => selectedDestinations.includes(id);
 
+  const selectedDestination = orderedDestinations.find((d) =>
+    selectedDestinations.includes(d.id)
+  );
+
+  const finalImage = selectedDestination
+    ? endingImages[selectedDestination.id]
+    : null;
+
+  const flagEmoji = selectedDestination
+    ? countryFlags[selectedDestination.id]
+    : null;
+
   /* ---------- RENDER ---------- */
 
   return (
@@ -186,7 +233,12 @@ export default function Destinations() {
         {/* ---------- CARD FINAL ---------- */}
         <section className="destination-card">
           <div className="destination-inner end-card">
-            <h1> ✈️</h1>
+            <h1 className="final-title">
+              ✈️
+              {selectedDestinations.length === 1 && flagEmoji && (
+                <span className="flag-emoji">{flagEmoji}</span>
+              )}
+            </h1>
 
             {selectedDestinations.length === 0 ? (
               <p className="muted">
@@ -194,13 +246,20 @@ export default function Destinations() {
               </p>
             ) : selectedDestinations.length === 1 ? (
               <ul className="highlights black-text">
+                {finalImage && (
+                  <img
+                    src={finalImage}
+                    alt={`Viagem para ${selectedDestination.city}`}
+                    className="final-image"
+                  />
+                )}
                 <h3>A nossa viagem está decidida!</h3>
                 {orderedDestinations
                   .filter((d) => selectedDestinations.includes(d.id))
                   .map((d) => (
                     <li key={d.id}>
                       Estamos a caminho de: {d.city}, {d.country}. Quando é que
-                      fazemos as malas? 🎒✈️
+                      fazemos as malas? 🎒
                     </li>
                   ))}
               </ul>
